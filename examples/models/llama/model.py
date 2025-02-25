@@ -54,7 +54,7 @@ class Llama2Model(EagerModelBase):
         self.output_prune_map_path = kwargs.get("output_prune_map_path", None)
         self.max_seq_len = kwargs.get("max_seq_len", 128)
         self.max_context_len = kwargs.get("max_context_len", 128)
-        self.dtype = kwargs.get("dtype_override", None)
+        self.dtype = kwargs.get("dtype", None)
         self.args = kwargs.get("args", None)
 
         assert (

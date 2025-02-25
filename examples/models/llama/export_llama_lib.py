@@ -983,6 +983,7 @@ def _load_llama_model(
             enable_dynamic_shape=enable_dynamic_shape,
             input_prune_map_path=input_prune_map_path,
             output_prune_map_path=output_prune_map_path,
+            dtype=dtype_override.to_torch_dtype(),
             args=args,
         )
     )

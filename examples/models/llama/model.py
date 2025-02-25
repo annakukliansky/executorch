@@ -289,15 +289,6 @@ the checkpoint format to avoid generating faulty models.
     def get_eager_model(self) -> torch.nn.Module:
         return self.model_
 
-        if self.checkpoint_dtype:
-            # convert to the type of the provided checkpoint
-            # input and output are torch.long, so signature unchanged
-            return self.model_.to(self.checkpoint_dtype)
-        else:
-            # int8 quantization code has some bf16,
-            # switch all to FP32
-            return self.model_.to(torch.float32)
-
     def get_example_inputs(self):
         if self.use_kv_cache:
             return self.get_example_inputs_kvcache_sdpa()
